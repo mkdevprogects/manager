@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Manager</title>
+  <title>Панель менеджера</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous">
+
+  </script>
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'На главную', home_index_path %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if admin_signed_in? %>
+            <li><%= link_to 'Профиль', edit_admin_registration_path %></li>
+            <li><%= link_to 'Выйти', destroy_admin_session_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to 'Зарегистрироваться', new_admin_registration_path %></li>
+            <li><%= link_to 'Войти', new_admin_session_path %></li>
+        <%	end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
 <%= yield %>
 
