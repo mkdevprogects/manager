@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+
+  <div  class="list-group">
+    <% @symptoms.each do |symptom| %>
+        <%= link_to symptom.title, symptom_path(symptom.id), class: "list-group-item" %>
+    <% end %>
+  </div>
+
+</div>
