@@ -1,4 +1,6 @@
 class SymptomsController < ApplicationController
+  before_action :set_symptom, only: [:show, :edit, :update, :destroy]
+
   def index
     @symptoms = Symptom.all
   end
@@ -19,5 +21,11 @@ class SymptomsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_symptom
+    @symptom = Symptom.find(params[:id])
   end
 end

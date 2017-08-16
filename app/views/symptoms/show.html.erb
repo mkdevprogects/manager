@@ -1,2 +1,19 @@
-<h1>Symptoms#show</h1>
-<p>Find me in app/views/symptoms/show.html.erb</p>
+<div class="row">
+  <div class="col-sm-24 col-md-24">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%=	@symptom.title %></h3>
+        <p><%= @symptom.description.inspect %></p>
+        <p>
+          <%= link_to 'Назад', symptoms_path, class: 'btn btn-primary btn-m' %>
+          <%= link_to 'Изменить', edit_symptom_path(@symptom.id), class: 'btn btn-default btn-m' %>
+          <%= link_to 'Удалить',
+                      symptom_path(@symptom.id),
+                      method: :delete,
+                      data: { confirm: 'Вы уверены?' },
+                      class: 'btn btn-danger btn-m' %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
