@@ -1,9 +1,24 @@
 <div class="panel panel-default">
-
+  <div class="panel-body">
+    <%= link_to 'Создать симптом', new_symptom_path, class: 'btn btn-success' %>
+  </div>
   <div  class="list-group">
     <% @symptoms.each do |symptom| %>
-        <%= link_to symptom.title, symptom_path(symptom.id), class: "list-group-item" %>
+        <div class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4 col-md-8">
+              <%= link_to symptom.title, symptom_path(symptom.id) %>
+            </div>
+            <div class="col-sm-4 col-md-4 text-right">
+              <%= link_to 'Изменить', edit_symptom_path(symptom.id), class: 'btn btn-default btn-m' %>
+              <%= link_to 'Удалить',
+                          symptom_path(symptom.id),
+                          method: :delete,
+                          data: { confirm: 'Вы уверены?' },
+                          class: 'btn btn-danger btn-m' %>
+            </div>
+          </div>
+        </div>
     <% end %>
   </div>
-
 </div>
