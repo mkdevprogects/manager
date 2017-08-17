@@ -17,7 +17,13 @@ class SymptomsController < ApplicationController
   end
 
   def create
-    @symptom = Symptom.new(params[:symptom_params])
+    @symptom = Symptom.new(symptom_params)
+    # diseases = Disease.where(id: symptom_params['diseases'])
+    # @symptom.diseases << diseases
+    @symptom.save!
+    # symptom_params['diseases'].compact.each do |disease_id|
+    #   DiseaseSymptom.create!(disease_id: disease_id, symptom_id: @symptom.id)
+    # end
     if @symptom.save
       redirect_to @symptom, notice: 'Симптом успешно создан.'
     else
@@ -38,6 +44,6 @@ class SymptomsController < ApplicationController
   end
 
   def symptom_params
-    params.require(:symptom).permit!#.permit(:title, :description, :diseases)
+    params.require(:symptom).permit(:title, :description, :diseases, :disease_ids)
   end
 end
