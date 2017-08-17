@@ -17,6 +17,12 @@ class SymptomsController < ApplicationController
   end
 
   def create
+    @symptom = Symptom.new(params[:symptom])
+    if @symptom.save
+      redirect_to @symptom
+    else
+      render :new
+    end
   end
 
   def update
