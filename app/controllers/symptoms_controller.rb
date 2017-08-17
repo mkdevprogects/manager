@@ -26,6 +26,11 @@ class SymptomsController < ApplicationController
   end
 
   def update
+    if @symptom.update(symptom_params)
+      redirect_to @symptom, notice: 'Симптом успешно изменен.'
+    else
+      render :new
+    end
   end
 
   def destroy
