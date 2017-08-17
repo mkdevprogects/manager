@@ -3,15 +3,10 @@
     <div class="thumbnail">
       <div class="caption">
         <h3><%=	@symptom.title %></h3>
-        <p><%= @symptom.description.inspect %></p>
+        <p><%= @symptom.description %></p>
         <p>
           <%= link_to 'Назад', symptoms_path, class: 'btn btn-primary btn-m' %>
-          <%= link_to 'Изменить', edit_symptom_path(@symptom.id), class: 'btn btn-default btn-m' %>
-          <%= link_to 'Удалить',
-                      symptom_path(@symptom.id),
-                      method: :delete,
-                      data: { confirm: 'Вы уверены?' },
-                      class: 'btn btn-danger btn-m' %>
+          <%= render 'changing_links', id: @symptom.id %>
         </p>
       </div>
       <div class="thumbnail">

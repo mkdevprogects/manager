@@ -10,12 +10,7 @@
               <%= link_to symptom.title, symptom_path(symptom.id) %>
             </div>
             <div class="col-sm-4 col-md-4 text-right">
-              <%= link_to 'Изменить', edit_symptom_path(symptom.id), class: 'btn btn-default btn-m' %>
-              <%= link_to 'Удалить',
-                          symptom_path(symptom.id),
-                          method: :delete,
-                          data: { confirm: 'Вы уверены?' },
-                          class: 'btn btn-danger btn-m' %>
+              <%= render 'changing_links', id: symptom.id %>
             </div>
           </div>
         </div>

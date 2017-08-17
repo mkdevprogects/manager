@@ -2,14 +2,14 @@ class SymptomsController < ApplicationController
   before_action :set_symptom, only: [:show, :edit, :update, :destroy]
 
   def index
-    @symptoms = Symptom.all
+    @symptoms = Symptom.all.decorate
   end
 
   def show
   end
 
   def new
-    @symptom = Symptom.new
+    @symptom = Symptom.new.decorate
     @diseases = Disease.all
   end
 
@@ -17,7 +17,7 @@ class SymptomsController < ApplicationController
   end
 
   def create
-    @symptom = Symptom.new(symptom_params)
+    @symptom = Symptom.new(symptom_params).decorate
     if @symptom.save
       redirect_to @symptom, notice: 'Симптом успешно создан.'
     else
@@ -41,7 +41,7 @@ class SymptomsController < ApplicationController
   private
 
   def set_symptom
-    @symptom = Symptom.find(params[:id])
+    @symptom = Symptom.find(params[:id]).decorate
   end
 
   def symptom_params
