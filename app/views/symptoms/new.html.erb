@@ -4,8 +4,7 @@
     <%= simple_form_for @symptom do |f| %>
         <%= f.input :title, label: 'Название симптома' %>
         <%= f.input :description, label: 'Описание симптома', as: :text %>
-        <%= f.input :diseases, collection: @diseases, as: :check_boxes, include_blank: false %>
-        <!--< %= f.association :diseases, as: :check_boxes %>-->
+        <%= f.association :diseases, as: :check_boxes %>
         <%= f.button :submit, 'Создать' %>
     <% end %>
   </div>
