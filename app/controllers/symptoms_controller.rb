@@ -17,9 +17,9 @@ class SymptomsController < ApplicationController
   end
 
   def create
-    @symptom = Symptom.new(params[:symptom])
+    @symptom = Symptom.new(params[:symptom_params])
     if @symptom.save
-      redirect_to @symptom
+      redirect_to @symptom, notice: 'Симптом успешно создан.'
     else
       render :new
     end
@@ -35,5 +35,9 @@ class SymptomsController < ApplicationController
 
   def set_symptom
     @symptom = Symptom.find(params[:id])
+  end
+
+  def symptom_params
+    params.require(:symptom).permit!#.permit(:title, :description, :diseases)
   end
 end
