@@ -34,6 +34,8 @@ class SymptomsController < ApplicationController
   end
 
   def destroy
+    @symptom.destroy
+    redirect_to symptoms_url, notice: 'Симптом успешно удален.'
   end
 
   private
