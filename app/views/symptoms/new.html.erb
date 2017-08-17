@@ -1,2 +1,11 @@
-<h1>Symptoms#new</h1>
-<p>Find me in app/views/symptoms/new.html.erb</p>
+<div class="thumbnail">
+  <div class="caption">
+    <h3>Создание симптома</h3>
+    <%= simple_form_for @symptom do |f| %>
+        <%= f.input :title, label: 'Название симптома' %>
+        <%= f.input :description, label: 'Описание симптома', as: :text %>
+        <%= f.input collection: @diseases %>
+        <%= f.button :submit, 'Создать' %>
+    <% end %>
+  </div>
+</div>

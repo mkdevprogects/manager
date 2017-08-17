@@ -9,6 +9,8 @@ class SymptomsController < ApplicationController
   end
 
   def new
+    @symptom = Symptom.new
+    @diseases = Disease.all
   end
 
   def edit

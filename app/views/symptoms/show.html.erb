@@ -14,6 +14,18 @@
                       class: 'btn btn-danger btn-m' %>
         </p>
       </div>
+      <div class="thumbnail">
+        <div class="caption">
+          <div class="panel-heading">
+              <div role="presentation">Болезни, присущие симптому:</div>
+            <div  class="list-group">
+              <% @symptom.diseases.each do |disease| %>
+                  <div class="list-group-item"><%=disease.title %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
