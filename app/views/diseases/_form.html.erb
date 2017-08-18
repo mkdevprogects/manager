@@ -3,6 +3,7 @@
     <h3><%= @disease.pages_title %> болезнь</h3>
     <%= simple_form_for @disease do |f| %>
         <%= f.input :title, label: 'Название болезни' %>
+        <%= f.input :icd_code, label: 'Код по МКБ:' %>
         <%= f.input :description, label: 'Описание болезни', as: :text %>
         <%= f.association :specializations,
                           as: :check_boxes,

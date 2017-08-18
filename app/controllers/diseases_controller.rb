@@ -49,6 +49,7 @@ class DiseasesController < BaseController
     params.require(:disease).permit(
         :title,
         :description,
+        :icd_code,
         symptom_ids: [],
         specialization_ids: []
     )
