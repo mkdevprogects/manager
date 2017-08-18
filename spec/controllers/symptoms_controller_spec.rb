@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SymptomsController, type: :controller do
+  let(:symptom) { create(:symptom) }
 
   describe "GET #index" do
     it "returns http success" do
@@ -11,7 +12,7 @@ RSpec.describe SymptomsController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      get :show, { id: symptom.id}
       expect(response).to have_http_status(:success)
     end
   end
@@ -25,29 +26,29 @@ RSpec.describe SymptomsController, type: :controller do
 
   describe "GET #edit" do
     it "returns http success" do
-      get :edit
+      get :edit, { id: symptom.id}
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+  describe "POST #create" do
+    it "returns http 302" do
+      post :create, { id: symptom.id, title: symptom.title}
+      expect(response).to have_http_status(302)
     end
   end
 
-  describe "GET #update" do
-    it "returns http success" do
-      get :update
-      expect(response).to have_http_status(:success)
+  describe "POST #update" do
+    it "returns http 302" do
+      patch :update, { id: symptom.id}
+      expect(response).to have_http_status(302)
     end
   end
 
-  describe "GET #destroy" do
-    it "returns http success" do
-      get :destroy
-      expect(response).to have_http_status(:success)
+  describe "POST #destroy" do
+    it "returns http 302" do
+      delete :destroy, { id: symptom.id}
+      expect(response).to have_http_status(302)
     end
   end
 
