@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-24 col-md-24">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%=	@symptom.title %></h3>
+        <p><%= @symptom.description %></p>
+        <p>
+          <%= link_to 'Назад', symptoms_path, class: 'btn btn-primary btn-m' %>
+          <%= render 'changing_links', id: @symptom.id %>
+        </p>
+      </div>
+      <div class="thumbnail">
+        <div class="caption">
+          <div class="panel-heading">
+              <div role="presentation">Болезни, присущие симптому:</div>
+            <div  class="list-group">
+              <% @symptom.diseases.each do |disease| %>
+                  <div class="list-group-item"><%=disease.title %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,7 @@
 <body>
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container container-fluid">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to 'На главную', home_index_path %></li>
@@ -42,8 +42,9 @@
 <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-
+<div class="container">
 <%= yield %>
+</div>
 
 </body>
 </html>
