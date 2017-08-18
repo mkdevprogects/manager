@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= link_to 'Создать болезнь', new_disease_path, class: 'btn btn-success' %>
+  </div>
+  <div  class="list-group">
+    <% @diseases.each do |disease| %>
+        <div class="list-group-item">
+          <div class="row">
+            <div class="col-sm-4 col-md-8">
+              <%= link_to disease.title, disease_path(disease.id) %>
+            </div>
+            <div class="col-sm-4 col-md-4 text-right">
+              <%= render 'changing_links', id: disease.id %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

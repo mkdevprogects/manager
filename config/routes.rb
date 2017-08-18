@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   resources :symptoms
+  resources :diseases
 
   resources :home, only: [:index]
 

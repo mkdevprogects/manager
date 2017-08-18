@@ -1,4 +1,4 @@
-class SymptomsController < ApplicationController
+class SymptomsController < BaseController
   before_action :set_symptom, only: [:show, :edit, :update, :destroy]
 
   def index
