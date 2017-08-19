@@ -1,0 +1,13 @@
+<div class="thumbnail">
+  <div class="caption">
+    <h3><%= @clinic.pages_title %> клинику</h3>
+    <%= simple_form_for @clinic do |f| %>
+        <%= f.input :title, label: 'Название клиники' %>
+        <%= f.input :phone, label: 'Телефон клиники' %>
+        <%= f.input :email, label: 'Email клиники' %>
+        <%= f.input :address, label: 'Адрес клиники' %>
+        <%= f.association :doctors, label_method: :surname_name, as: :check_boxes %>
+        <%= f.button :submit, 'Сохранить' %>
+    <% end %>
+  </div>
+</div>

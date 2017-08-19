@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-24 col-md-24">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%=	@clinic.title %></h3>
+        <p>телефон: <%= @clinic.phone %></p>
+        <p>email: <%= @clinic.email %></p>
+        <p>адрес: <%= @clinic.address %></p>
+        <p>
+          <%= link_to 'Назад', clinics_path, class: 'btn btn-primary btn-m' %>
+          <%= render 'changing_links', id: @clinic.id %>
+        </p>
+      </div>
+      <div class="thumbnail">
+        <div class="caption">
+          <div class="panel-heading">
+            <div role="presentation">Специализации врачей клиники:</div>
+            <div  class="list-group">
+              <% @clinic.specializations_titles.each do |spec| %>
+                  <div class="list-group-item"><%= spec %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="thumbnail">
+        <div class="caption">
+          <div class="panel-heading">
+            <div role="presentation">Врачи, работающие в клинике:</div>
+            <div  class="list-group">
+              <% @clinic.doctors.each do |doctor| %>
+                  <div class="list-group-item"><%=doctor.surname %> <%=doctor.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
