@@ -6,7 +6,7 @@
         <%= f.input :phone, label: 'Телефон клиники' %>
         <%= f.input :email, label: 'Email клиники' %>
         <%= f.input :address, label: 'Адрес клиники' %>
-        <%= f.association :doctors, label_method: :surname, as: :check_boxes %>
+        <%= f.association :doctors, label_method: :surname_name, as: :check_boxes %>
         <%= f.button :submit, 'Сохранить' %>
     <% end %>
   </div>

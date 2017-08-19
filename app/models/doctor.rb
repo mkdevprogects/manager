@@ -17,4 +17,8 @@ class Doctor < ActiveRecord::Base
 
   validates :name, :surname, presence: true
   validates :email, presence: true, uniqueness: true
+
+  def surname_name
+    "#{self.surname} #{self.name}"
+  end
 end
