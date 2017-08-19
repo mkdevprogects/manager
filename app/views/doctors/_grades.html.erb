@@ -1,0 +1,8 @@
+<div class="panel-heading">
+  <div role="presentation">Категория:</div>
+  <div  class="list-group">
+    <% @doctor.grades.each do |grade| %>
+        <div class="list-group-item"><%=grade.title %></div>
+    <% end %>
+  </div>
+</div>
