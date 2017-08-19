@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :diseases
   resources :clinics
 
+  resources :doctors
+
   resources :home, only: [:index]
 
   devise_for :admin

@@ -1,0 +1,6 @@
+<%= link_to 'Изменить', edit_doctor_path(id), class: 'btn btn-default btn-m' %>
+<%= link_to 'Удалить',
+            doctor_path(id),
+            method: :delete,
+            data: { confirm: 'Вы уверены?' },
+            class: 'btn btn-danger btn-m' %>
