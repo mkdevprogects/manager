@@ -105,7 +105,7 @@ RSpec.describe ClinicsController, type: :controller do
     end
 
     describe "POST #create" do
-      it "returns http 302" do
+      it "returns http 200" do
         post :create, { clinic: {title: clinic.title, email: clinic.email }}
         expect(response).to have_http_status(200)
       end
