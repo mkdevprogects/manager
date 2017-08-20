@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe ClinicsController, type: :controller do
   render_views
-  let(:admin) { create(:admin) }
-  let(:clinic) { create(:clinic) }
+  let!(:clinic) { create(:clinic) }
 
   context 'signed in' do
+    let(:admin) { create(:admin) }
+
     before { sign_in admin }
 
     describe "GET #index" do
@@ -70,7 +71,7 @@ RSpec.describe ClinicsController, type: :controller do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the index template" do
+      it "renders the new template" do
         expect(response).to render_template("new")
       end
     end
@@ -82,7 +83,7 @@ RSpec.describe ClinicsController, type: :controller do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the index template" do
+      it "renders the edit template" do
         expect(response).to render_template("edit")
       end
 
@@ -105,14 +106,14 @@ RSpec.describe ClinicsController, type: :controller do
 
     describe "POST #create" do
       it "returns http 302" do
-        post :create, { id: clinic.id, title: clinic.title, email: clinic.email}
-        expect(response).to have_http_status(302)
+        post :create, { clinic: {title: clinic.title, email: clinic.email }}
+        expect(response).to have_http_status(200)
       end
     end
 
     describe "POST #update" do
       it "returns http 302" do
-        patch :update, { id: clinic.id}
+        patch :update, { id: clinic.id, clinic: {title: clinic.title, email: clinic.email }}
         expect(response).to have_http_status(302)
       end
     end
