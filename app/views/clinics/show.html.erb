@@ -13,26 +13,8 @@
       </div>
       <div class="thumbnail">
         <div class="caption">
-          <div class="panel-heading">
-            <div role="presentation">Специализации врачей клиники:</div>
-            <div  class="list-group">
-              <% @clinic.specializations_titles.each do |spec| %>
-                  <div class="list-group-item"><%= spec %></div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="thumbnail">
-        <div class="caption">
-          <div class="panel-heading">
-            <div role="presentation">Врачи, работающие в клинике:</div>
-            <div  class="list-group">
-              <% @clinic.doctors.each do |doctor| %>
-                  <div class="list-group-item"><%=doctor.surname %> <%=doctor.name %></div>
-              <% end %>
-            </div>
-          </div>
+          <%= render 'specializations' %>
+          <%= render 'doctors' %>
         </div>
       </div>
     </div>
