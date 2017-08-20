@@ -111,14 +111,14 @@ RSpec.describe DiseasesController, type: :controller do
       end
     end
 
-    describe "GET #create" do
+    describe "POST #create" do
       it "returns http 200" do
         post :create, { disease: {title: disease.title, icd_code: disease.icd_code }}
         expect(response).to have_http_status(200)
       end
     end
 
-    describe "GET #update" do
+    describe "POST #update" do
       it "returns http 302" do
         patch :update, { id: disease.id, disease: {title: disease.title, icd_code: disease.icd_code }}
         expect(response).to have_http_status(302)

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   sequence :name do
-    Faker::StarTrek.character
+    Faker::LordOfTheRings.character
   end
 
   sequence :surname do
@@ -19,7 +19,7 @@ FactoryGirl.define do
     "#{Faker::Address.city}, #{Faker::Address.street_address}"
   end
 
-  sequence :description do
-    Faker::Hobbit.quote
+  sequence :description do |n|
+    "Description #{n}"
   end
 end
