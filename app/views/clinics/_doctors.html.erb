@@ -2,7 +2,7 @@
   <div role="presentation">Врачи, работающие в клинике:</div>
   <div  class="list-group">
     <% @clinic.doctors.each do |doctor| %>
-        <div class="list-group-item"><%=doctor.surname %> <%=doctor.name %></div>
+        <div class="list-group-item"><%=doctor.surname_name %></div>
     <% end %>
   </div>
 </div>
