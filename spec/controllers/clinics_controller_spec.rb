@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe ClinicsController, type: :controller do
   render_views
   let(:admin) { create(:admin) }
+  let(:clinic) { create(:clinic) }
 
   context 'signed in' do
     before { sign_in admin }
@@ -63,8 +64,6 @@ RSpec.describe ClinicsController, type: :controller do
     end
 
     describe "GET #new" do
-      let(:doctor) { create(:doctor) }
-
       before { get :new }
 
       it "returns http success" do
@@ -77,8 +76,6 @@ RSpec.describe ClinicsController, type: :controller do
     end
 
     describe "GET #edit" do
-      let(:clinic) { create(:clinic) }
-
       before { get :edit, { id: clinic.id} }
 
       it "returns http success" do
@@ -107,8 +104,6 @@ RSpec.describe ClinicsController, type: :controller do
     end
 
     describe "POST #create" do
-      let(:clinic) { create(:clinic) }
-
       it "returns http 302" do
         post :create, { id: clinic.id, title: clinic.title, email: clinic.email}
         expect(response).to have_http_status(302)
@@ -116,8 +111,6 @@ RSpec.describe ClinicsController, type: :controller do
     end
 
     describe "POST #update" do
-      let(:clinic) { create(:clinic) }
-
       it "returns http 302" do
         patch :update, { id: clinic.id}
         expect(response).to have_http_status(302)
@@ -125,8 +118,6 @@ RSpec.describe ClinicsController, type: :controller do
     end
 
     describe "POST #destroy" do
-      let(:clinic) { create(:clinic) }
-
       it "returns http 302" do
         delete :destroy, { id: clinic.id}
         expect(response).to have_http_status(302)
@@ -134,4 +125,33 @@ RSpec.describe ClinicsController, type: :controller do
     end
   end
 
+  context 'guest' do
+    describe "GET #index" do
+      it "returns http 302" do
+        get :index
+        expect(response).to have_http_status(302)
+      end
+    end
+
+    describe "GET #show" do
+      it "returns http 302" do
+        get :show, { id: clinic.id}
+        expect(response).to have_http_status(302)
+      end
+    end
+
+    describe "GET #new" do
+      it "returns http 302" do
+        get :new
+        expect(response).to have_http_status(302)
+      end
+    end
+
+    describe "GET #edit" do
+      it "returns http 302" do
+        get :edit, { id: clinic.id}
+        expect(response).to have_http_status(302)
+      end
+    end
+  end
 end
