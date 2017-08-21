@@ -20,15 +20,17 @@ RSpec.describe ClinicsController, type: :controller do
       end
 
       it 'renders the index template' do
-        expect(response).to render_template('index')
+        expect(response).to render_template(:index)
       end
 
       it 'loads all clinics' do
         expect(assigns(:clinics)).to match_array([clinic_1, clinic_2])
       end
 
-      it 'page have clinics title' do
-        expect(response.body).to include("#{clinic_1.title}","#{clinic_2.title}")
+      context 'add to view spec' do
+        it 'page have clinics title' do
+          expect(response.body).to include("#{clinic_1.title}","#{clinic_2.title}")
+        end
       end
     end
 
@@ -44,23 +46,25 @@ RSpec.describe ClinicsController, type: :controller do
       end
 
       it 'renders the show template' do
-        expect(response).to render_template('show')
+        expect(response).to render_template(:show)
       end
 
       it 'load clinic' do
         expect(assigns(:clinic)).to eq(clinic)
       end
 
-      it 'page have clinics title' do
-        expect(response.body).to include("#{clinic.title}")
-      end
+      context 'add to view spec' do
+        it 'page have clinics title' do
+          expect(response.body).to include("#{clinic.title}")
+        end
 
-      it 'page have clinics specializations' do
-        expect(response.body).to include("#{clinic.specializations_titles.first}")
-      end
+        it 'page have clinics specializations' do
+          expect(response.body).to include("#{clinic.specializations_titles.first}")
+        end
 
-      it 'page have clinics doctor' do
-        expect(response.body).to include("#{doctor.surname_name}")
+        it 'page have clinics doctor' do
+          expect(response.body).to include("#{doctor.surname_name}")
+        end
       end
     end
 
@@ -72,7 +76,7 @@ RSpec.describe ClinicsController, type: :controller do
       end
 
       it 'renders the new template' do
-        expect(response).to render_template('new')
+        expect(response).to render_template(:new)
       end
     end
 
@@ -84,94 +88,96 @@ RSpec.describe ClinicsController, type: :controller do
       end
 
       it 'renders the edit template' do
-        expect(response).to render_template('edit')
+        expect(response).to render_template(:edit)
       end
 
-      it 'page have clinics title' do
-        expect(response.body).to include("#{clinic.title}")
-      end
+      context 'add to view spec' do
+        it 'page have clinics title' do
+          expect(response.body).to include("#{clinic.title}")
+        end
 
-      it 'page have clinics phone' do
-        expect(response.body).to include("#{clinic.phone}")
-      end
+        it 'page have clinics phone' do
+          expect(response.body).to include("#{clinic.phone}")
+        end
 
-      it 'page have clinics email' do
-        expect(response.body).to include("#{clinic.email}")
-      end
+        it 'page have clinics email' do
+          expect(response.body).to include("#{clinic.email}")
+        end
 
-      it 'page have clinics address' do
-        expect(response.body).to include("#{clinic.address}")
+        it 'page have clinics address' do
+          expect(response.body).to include("#{clinic.address}")
+        end
       end
     end
 
     describe 'POST #create' do
       context 'valid data' do
-        it 'renders the show template' do
+        it 'redirect to show' do
           post :create, { clinic: {title: clinic.title, email: clinic.email }}
-          expect(response).to render_template('show')
+          expect(response).to redirect_to assigns(:clinic)
         end
       end
 
       context 'not valid data' do
         it 'renders the new template' do
           post :create, { clinic: {title: clinic.title }}
-          expect(response).to render_template('new')
+          expect(response).to render_template(:new)
         end
       end
     end
 
     describe 'POST #update' do
       context 'valid data' do
-        it 'renders the show template' do
+        it 'redirect to show' do
           attributes_for(:clinic)
           patch :update, { id: clinic.id, clinic: {title: clinic.title, email: clinic.email }}
-          expect(response).to render_template('show')
+          expect(response).to redirect_to assigns(:clinic)
         end
       end
 
       context 'not valid data' do
-        it 'renders the edit template2' do
+        it 'renders the edit template' do
           attributes_for(:clinic)
           patch :update, { id: clinic.id, clinic: {title: clinic.title, email: nil }}
-          expect(response).to render_template('edit')
+          expect(response).to render_template(:edit)
         end
       end
     end
 
     describe 'POST #destroy' do
-      it 'returns http 302' do
+      it 'redirect to index' do
         delete :destroy, { id: clinic.id}
-        expect(response).to have_http_status(302)
+        expect(response).to redirect_to action: :index
       end
     end
   end
 
   context 'guest' do
     describe 'GET #index' do
-      it 'returns http 302' do
+      it 'redirect to admin/sign_in' do
         get :index
-        expect(response).to have_http_status(302)
+        expect(response).to admin_sign_in
       end
     end
 
     describe 'GET #show' do
-      it 'returns http 302' do
+      it 'redirect to admin/sign_in' do
         get :show, { id: clinic.id}
-        expect(response).to have_http_status(302)
+        expect(response).to admin_sign_in
       end
     end
 
     describe 'GET #new' do
-      it 'returns http 302' do
+      it 'redirect to admin/sign_in' do
         get :new
-        expect(response).to have_http_status(302)
+        expect(response).to admin_sign_in
       end
     end
 
     describe 'GET #edit' do
-      it 'returns http 302' do
+      it 'redirect to admin/sign_in' do
         get :edit, { id: clinic.id}
-        expect(response).to have_http_status(302)
+        expect(response).to admin_sign_in
       end
     end
   end

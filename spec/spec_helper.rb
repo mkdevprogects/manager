@@ -15,3 +15,7 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
 end
+
+def admin_sign_in
+  redirect_to('/admin/sign_in')
+end
