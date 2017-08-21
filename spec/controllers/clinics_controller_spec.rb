@@ -26,12 +26,6 @@ RSpec.describe ClinicsController, type: :controller do
       it 'loads all clinics' do
         expect(assigns(:clinics)).to match_array([clinic_1, clinic_2])
       end
-
-      context 'add to view spec' do
-        it 'page have clinics title' do
-          expect(response.body).to include("#{clinic_1.title}","#{clinic_2.title}")
-        end
-      end
     end
 
     describe 'GET #show' do
@@ -51,20 +45,6 @@ RSpec.describe ClinicsController, type: :controller do
 
       it 'load clinic' do
         expect(assigns(:clinic)).to eq(clinic)
-      end
-
-      context 'add to view spec' do
-        it 'page have clinics title' do
-          expect(response.body).to include("#{clinic.title}")
-        end
-
-        it 'page have clinics specializations' do
-          expect(response.body).to include("#{clinic.specializations_titles.first}")
-        end
-
-        it 'page have clinics doctor' do
-          expect(response.body).to include("#{doctor.surname_name}")
-        end
       end
     end
 
@@ -90,30 +70,12 @@ RSpec.describe ClinicsController, type: :controller do
       it 'renders the edit template' do
         expect(response).to render_template(:edit)
       end
-
-      context 'add to view spec' do
-        it 'page have clinics title' do
-          expect(response.body).to include("#{clinic.title}")
-        end
-
-        it 'page have clinics phone' do
-          expect(response.body).to include("#{clinic.phone}")
-        end
-
-        it 'page have clinics email' do
-          expect(response.body).to include("#{clinic.email}")
-        end
-
-        it 'page have clinics address' do
-          expect(response.body).to include("#{clinic.address}")
-        end
-      end
     end
 
     describe 'POST #create' do
       context 'valid data' do
         it 'redirect to show' do
-          post :create, { clinic: {title: clinic.title, email: clinic.email }}
+          post :create, { clinic: attributes_for(:clinic) }
           expect(response).to redirect_to assigns(:clinic)
         end
       end
@@ -129,8 +91,7 @@ RSpec.describe ClinicsController, type: :controller do
     describe 'POST #update' do
       context 'valid data' do
         it 'redirect to show' do
-          attributes_for(:clinic)
-          patch :update, { id: clinic.id, clinic: {title: clinic.title, email: clinic.email }}
+          patch :update, { id: clinic.id, clinic: attributes_for(:clinic) }
           expect(response).to redirect_to assigns(:clinic)
         end
       end
