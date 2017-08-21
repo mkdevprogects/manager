@@ -15,7 +15,3 @@ RSpec.configure do |config|
   config.order = :random
   Kernel.srand config.seed
 end
-
-def email
-  "qwerty#{rand(1000)}@gmail.com"
-end

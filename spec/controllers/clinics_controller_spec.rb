@@ -2,124 +2,144 @@ require 'rails_helper'
 
 RSpec.describe ClinicsController, type: :controller do
   render_views
-  let!(:clinic) { create(:clinic) }
+  let(:clinic) { create(:clinic) }
 
   context 'signed in' do
     let(:admin) { create(:admin) }
 
     before { sign_in admin }
 
-    describe "GET #index" do
+    describe 'GET #index' do
       let!(:clinic_1) { create(:clinic) }
       let!(:clinic_2) { create(:clinic) }
 
       before { get :index }
 
-      it "returns http success" do
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the index template" do
-        expect(response).to render_template("index")
+      it 'renders the index template' do
+        expect(response).to render_template('index')
       end
 
-      it "loads all clinics" do
+      it 'loads all clinics' do
         expect(assigns(:clinics)).to match_array([clinic_1, clinic_2])
       end
 
-      it "page have clinics title" do
+      it 'page have clinics title' do
         expect(response.body).to include("#{clinic_1.title}","#{clinic_2.title}")
       end
     end
 
-    describe "GET #show" do
+    describe 'GET #show' do
       let(:specialization) { create(:specialization) }
       let(:doctor) { create(:doctor, specializations: [specialization]) }
       let(:clinic) { create(:clinic, doctors: [doctor]) }
 
       before { get :show, { id: clinic.id} }
 
-      it "returns http success" do
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the show template" do
-        expect(response).to render_template("show")
+      it 'renders the show template' do
+        expect(response).to render_template('show')
       end
 
-      it "load clinic" do
+      it 'load clinic' do
         expect(assigns(:clinic)).to eq(clinic)
       end
 
-      it "page have clinics title" do
+      it 'page have clinics title' do
         expect(response.body).to include("#{clinic.title}")
       end
 
-      it "page have clinics specializations" do
+      it 'page have clinics specializations' do
         expect(response.body).to include("#{clinic.specializations_titles.first}")
       end
 
-      it "page have clinics doctor" do
+      it 'page have clinics doctor' do
         expect(response.body).to include("#{doctor.surname_name}")
       end
     end
 
-    describe "GET #new" do
+    describe 'GET #new' do
       before { get :new }
 
-      it "returns http success" do
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the new template" do
-        expect(response).to render_template("new")
+      it 'renders the new template' do
+        expect(response).to render_template('new')
       end
     end
 
-    describe "GET #edit" do
+    describe 'GET #edit' do
       before { get :edit, { id: clinic.id} }
 
-      it "returns http success" do
+      it 'returns http success' do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the edit template" do
-        expect(response).to render_template("edit")
+      it 'renders the edit template' do
+        expect(response).to render_template('edit')
       end
 
-      it "page have clinics title" do
+      it 'page have clinics title' do
         expect(response.body).to include("#{clinic.title}")
       end
 
-      it "page have clinics phone" do
+      it 'page have clinics phone' do
         expect(response.body).to include("#{clinic.phone}")
       end
 
-      it "page have clinics email" do
+      it 'page have clinics email' do
         expect(response.body).to include("#{clinic.email}")
       end
 
-      it "page have clinics address" do
+      it 'page have clinics address' do
         expect(response.body).to include("#{clinic.address}")
       end
     end
 
-    describe "POST #create" do
-      it "returns http 200" do
-        post :create, { clinic: {title: clinic.title, email: clinic.email }}
-        expect(response).to have_http_status(200)
+    describe 'POST #create' do
+      context 'valid data' do
+        it 'renders the show template' do
+          post :create, { clinic: {title: clinic.title, email: clinic.email }}
+          expect(response).to render_template('show')
+        end
+      end
+
+      context 'not valid data' do
+        it 'renders the new template' do
+          post :create, { clinic: {title: clinic.title }}
+          expect(response).to render_template('new')
+        end
       end
     end
 
-    describe "POST #update" do
-      it "returns http 302" do
-        patch :update, { id: clinic.id, clinic: {title: clinic.title, email: clinic.email }}
-        expect(response).to have_http_status(302)
+    describe 'POST #update' do
+      context 'valid data' do
+        it 'renders the show template' do
+          attributes_for(:clinic)
+          patch :update, { id: clinic.id, clinic: {title: clinic.title, email: clinic.email }}
+          expect(response).to render_template('show')
+        end
+      end
+
+      context 'not valid data' do
+        it 'renders the edit template2' do
+          attributes_for(:clinic)
+          patch :update, { id: clinic.id, clinic: {title: clinic.title, email: nil }}
+          expect(response).to render_template('edit')
+        end
       end
     end
 
-    describe "POST #destroy" do
-      it "returns http 302" do
+    describe 'POST #destroy' do
+      it 'returns http 302' do
         delete :destroy, { id: clinic.id}
         expect(response).to have_http_status(302)
       end
@@ -127,29 +147,29 @@ RSpec.describe ClinicsController, type: :controller do
   end
 
   context 'guest' do
-    describe "GET #index" do
-      it "returns http 302" do
+    describe 'GET #index' do
+      it 'returns http 302' do
         get :index
         expect(response).to have_http_status(302)
       end
     end
 
-    describe "GET #show" do
-      it "returns http 302" do
+    describe 'GET #show' do
+      it 'returns http 302' do
         get :show, { id: clinic.id}
         expect(response).to have_http_status(302)
       end
     end
 
-    describe "GET #new" do
-      it "returns http 302" do
+    describe 'GET #new' do
+      it 'returns http 302' do
         get :new
         expect(response).to have_http_status(302)
       end
     end
 
-    describe "GET #edit" do
-      it "returns http 302" do
+    describe 'GET #edit' do
+      it 'returns http 302' do
         get :edit, { id: clinic.id}
         expect(response).to have_http_status(302)
       end
