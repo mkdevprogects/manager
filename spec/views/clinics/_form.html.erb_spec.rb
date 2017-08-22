@@ -1,44 +1,56 @@
 require 'rails_helper'
 
 RSpec.describe "clinics/_form", type: :view do
-  let!(:doctors) { [create(:doctor), create(:doctor)] }
-  let(:clinic) { create(:clinic) }
+  let!(:doctor) { create(:doctor) }
+  let!(:doctor_2) { create(:doctor) }
   let(:admin) { create(:admin) }
   before { sign_in admin }
-  let!(:item) do
-    assign(:clinic, clinic.decorate)
-    render
-  end
 
+  context 'page havea labes' do
+    let(:clinic) { create(:clinic) }
+    let!(:item) do
+      assign(:clinic, clinic.decorate)
+      render
+    end
 
-
-  it 'page have a label "Название клиники"' do
-    expect(rendered).to have_selector('label', text: 'Название клиники')
-  end
-  it 'page have a label "Телефон клиники"' do
-    expect(rendered).to have_selector('label', text: 'Телефон клиники')
-  end
-  it 'page have a label "Email клиники"' do
-    expect(rendered).to have_selector('label', text: 'Email клиники')
-  end
-  it 'page have a label "Адрес клиники"' do
-    expect(rendered).to have_selector('label', text: 'Адрес клиники')
+    it 'page have a label "Название клиники"' do
+      expect(rendered).to have_selector('label', text: 'Название клиники')
+    end
+    it 'page have a label "Телефон клиники"' do
+      expect(rendered).to have_selector('label', text: 'Телефон клиники')
+    end
+    it 'page have a label "Email клиники"' do
+      expect(rendered).to have_selector('label', text: 'Email клиники')
+    end
+    it 'page have a label "Адрес клиники"' do
+      expect(rendered).to have_selector('label', text: 'Адрес клиники')
+    end
   end
 
   context 'new clinic' do
+    let(:clinic) { build(:clinic) }
+    let!(:item) do
+      assign(:clinic, clinic.decorate)
+      render
+    end
     it 'page have unchecked checkoxes doctors' do
-      # изменить тест, использовать чекбоксы и матчеры капибары
-      expect(rendered).to match(doctors.first.surname_name).and match(doctors.last.surname_name)
+      expect(rendered).to have_selector("input#clinic_doctor_ids_#{doctor.id}[type='checkbox']")
     end
 
   end
 
   context 'edit clinic' do
-    it 'page have checked doctors checkoboxes' do
-      # изменить тест, использовать чекбоксы и матчеры капибары
-      # expect(rendered).to match(doctors.first.surname_name).and match(doctors.last.surname_name)
-      expect(rendered).to have_checked_field("input#clinic_doctor_ids_#{doctors.first.id}")
+    let(:clinic) { create(:clinic) }
+    let!(:item) do
+      clinic.doctors = [doctor]
+      assign(:clinic, clinic.decorate)
+      render
     end
+
+    it 'page have checked doctors checkoboxes' do
+      expect(rendered).to have_selector("input#clinic_doctor_ids_#{doctor.id}[checked='checked']")
+    end
+
     it 'page have clinics title' do
       expect(rendered).to have_selector("input#clinic_title[value='#{clinic.title}']")
     end
