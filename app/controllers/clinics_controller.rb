@@ -1,4 +1,4 @@
-class ClinicsController < ApplicationController
+class ClinicsController < BaseController
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
 
   def index

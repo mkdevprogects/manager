@@ -12,20 +12,8 @@
       </div>
       <div class="thumbnail">
         <div class="caption">
-          <div class="panel-heading">
-            <div role="presentation">Симптомы, присущие болезни:</div>
-            <div  class="list-group">
-              <% @disease.symptoms.each do |symptom| %>
-                  <div class="list-group-item"><%=symptom.title %></div>
-              <% end %>
-            </div>
-            <div role="presentation">Специализации врачей, которые лечат эту болезнь:</div>
-            <div  class="list-group">
-              <% @disease.specializations.each do |specialization| %>
-                  <div class="list-group-item"><%=specialization.title %></div>
-              <% end %>
-            </div>
-          </div>
+          <%= render 'symptoms' %>
+          <%= render 'specializations' %>
         </div>
       </div>
     </div>

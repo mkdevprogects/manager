@@ -12,36 +12,9 @@
       </div>
       <div class="thumbnail">
         <div class="caption">
-          <div class="panel-heading">
-            <div role="presentation">Категория:</div>
-            <div  class="list-group">
-              <% @doctor.grades.each do |grade| %>
-                  <div class="list-group-item"><%=grade.title %></div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="caption">
-          <div class="panel-heading">
-            <div role="presentation">Специализация:</div>
-            <div  class="list-group">
-              <% @doctor.specializations.each do |specialization| %>
-                  <div class="list-group-item"><%=specialization.title %></div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="caption">
-          <div class="panel-heading">
-            <div role="presentation">Клиники, в которых работает врач:</div>
-            <div  class="list-group">
-              <% @doctor.clinics.each do |clinic| %>
-                  <div class="list-group-item"><%=clinic.title %></div>
-              <% end %>
-            </div>
-          </div>
+          <%= render 'grades' %>
+          <%= render 'specializations' %>
+          <%= render 'clinics' %>
         </div>
       </div>
     </div>

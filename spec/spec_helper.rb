@@ -16,6 +16,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
-def email
-  "qwerty#{rand(1000)}@gmail.com"
+def admin_sign_in
+  redirect_to('/admin/sign_in')
 end

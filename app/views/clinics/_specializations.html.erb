@@ -1,0 +1,8 @@
+<div class="panel-heading">
+  <div role="presentation">Специализации врачей клиники:</div>
+  <div  class="list-group">
+    <% @clinic.specializations_titles.each do |spec| %>
+        <div class="list-group-item"><%= spec %></div>
+    <% end %>
+  </div>
+</div>
