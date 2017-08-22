@@ -9,6 +9,6 @@ RSpec.describe 'clinics/index', type: :view do
   it 'page have clinics title' do
     assign(:clinics, [clinic, clinic_2])
     render
-    expect(rendered).to match(clinic.title).and match(clinic_2.title)
+    expect(rendered).to have_selector('a', text: clinic.title).and have_selector('a', text: clinic_2.title)
   end
 end
