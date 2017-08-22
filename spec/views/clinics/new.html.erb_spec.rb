@@ -15,15 +15,15 @@ RSpec.describe 'clinics/new', type: :view do
   end
 
   it 'page have a label "Название клиники"' do
-    expect(rendered).to match 'Название клиники'
+    expect(rendered).to have_selector('label', text: 'Название клиники')
   end
   it 'page have a label "Телефон клиники"' do
-    expect(rendered).to match 'Телефон клиники'
+    expect(rendered).to have_selector('label', text: 'Телефон клиники')
   end
   it 'page have a label "Email клиники"' do
-    expect(rendered).to match 'Email клиники'
+    expect(rendered).to have_selector('label', text: 'Email клиники')
   end
   it 'page have a label "Адрес клиники"' do
-    expect(rendered).to match 'Адрес клиники'
+    expect(rendered).to have_selector('label', text: 'Адрес клиники')
   end
 end

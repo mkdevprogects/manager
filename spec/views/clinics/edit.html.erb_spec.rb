@@ -7,7 +7,7 @@ RSpec.describe 'clinics/edit', type: :view do
     render
   end
   it 'page have clinics title' do
-    expect(rendered).to match clinic.title
+    expect(rendered).to have_selector("input#clinic_title", text: clinic.title)
   end
 
   it 'page have clinics phone' do
