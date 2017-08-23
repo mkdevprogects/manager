@@ -2,11 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "clinics/_form", type: :view do
   let!(:doctor) { create(:doctor) }
-  let!(:doctor_2) { create(:doctor) }
   let(:admin) { create(:admin) }
   before { sign_in admin }
 
-  context 'page havea labes' do
+  context 'page have a labes' do
     let(:clinic) { create(:clinic) }
     let!(:item) do
       assign(:clinic, clinic.decorate)
@@ -33,6 +32,7 @@ RSpec.describe "clinics/_form", type: :view do
       assign(:clinic, clinic.decorate)
       render
     end
+
     it 'page have unchecked checkoxes doctors' do
       expect(rendered).to have_selector("input#clinic_doctor_ids_#{doctor.id}[type='checkbox']")
     end

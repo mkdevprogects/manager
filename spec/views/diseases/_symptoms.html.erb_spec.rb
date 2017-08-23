@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "diseases/_symptoms", type: :view do
+RSpec.describe 'diseases/_symptoms', type: :view do
   let(:disease) { create(
       :disease,
       symptoms: [create(:symptom)]

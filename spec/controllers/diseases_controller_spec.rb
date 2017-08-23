@@ -59,7 +59,7 @@ RSpec.describe DiseasesController, type: :controller do
       end
 
       it 'renders the new template' do
-        expect(response).to render_template('new')
+        expect(response).to render_template(:new)
       end
     end
 
@@ -71,34 +71,39 @@ RSpec.describe DiseasesController, type: :controller do
       end
 
       it 'renders the edit template' do
-        expect(response).to render_template('edit')
-      end
-
-      # вынести в вьюхи
-      it 'page have diseases title' do
-        expect(response.body).to include("#{disease.title}")
-      end
-
-      it 'page have diseases icd_code' do
-        expect(response.body).to include("#{disease.icd_code}")
-      end
-
-      it 'page have diseases description' do
-        expect(response.body).to include("#{disease.description}")
+        expect(response).to render_template(:edit)
       end
     end
 
     describe 'POST #create' do
-      it 'returns http 200' do
-        post :create, { disease: {title: disease.title, icd_code: disease.icd_code }}
-        expect(response).to have_http_status(200)
+      context 'valid data' do
+        it 'redirect to show' do
+          post :create, { disease: attributes_for(:disease) }
+          expect(response).to redirect_to assigns(:disease)
+        end
+      end
+
+      context 'not valid data' do
+        it 'renders the new template' do
+          post :create, { disease: {title: nil }}
+          expect(response).to render_template(:new)
+        end
       end
     end
 
     describe 'POST #update' do
-      it 'returns http 302' do
-        patch :update, { id: disease.id, disease: {title: disease.title, icd_code: disease.icd_code }}
-        expect(response).to have_http_status(302)
+      context 'valid data' do
+        it 'redirect to show' do
+          patch :update, { id: disease.id, disease: attributes_for(:disease) }
+          expect(response).to redirect_to assigns(:disease)
+        end
+      end
+
+      context 'not valid data' do
+        it 'renders the edit template' do
+          patch :update, { id: disease.id, disease: {title: nil }}
+          expect(response).to render_template(:edit)
+        end
       end
     end
 
