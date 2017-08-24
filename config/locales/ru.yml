@@ -19,3 +19,9 @@ ru:
   changing_links:
    change: 'Изменить'
    delete: 'Удалить'
+  show:
+   back: 'Назад'
+  doctors:
+   doctors: 'Врачи, работающие в клинике:'
+  specializations:
+   specializations: 'Специализации врачей клиники:'
