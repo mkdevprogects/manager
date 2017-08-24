@@ -1,0 +1,31 @@
+ru:
+ activerecord:
+  models:
+   clinic: 'Клиника'
+   doctor: 'Врач'
+   disease: 'Болезнь'
+   symptom: 'Симптом'
+   specialization: 'Специализация'
+   diagnosis: 'Диагноз'
+   grade: 'Категория'
+   drug: 'Лекарство'
+   illness: 'Болезнь'
+   patient: 'Пациент'
+   prescription: 'Рецепт'
+   visit: 'Прием'
+  attributes:
+   clinic:
+    doctors: 'Врачи'
+    title: 'Название клиники'
+    phone: 'Телефон клиники'
+    email: 'Email клиники'
+    address: 'Адрес клиники'
+   symptom:
+    diseases: 'Болезни'
+   doctor:
+    grades: 'Категории'
+    specializations: 'Специализации'
+    clinics: 'Клиники'
+  errors:
+   messages:
+    blank: 'не может быть пустым'

@@ -1,0 +1,29 @@
+ru:
+ actions:
+  create: 'Создать'
+  edit: 'Изменить'
+  delete: 'Удалить'
+ layouts:
+  application:
+   title: 'Панель менеджера'
+   on_global: 'На главную'
+   profile: 'Профиль'
+   exit: 'Выйти'
+   registration: 'Регистрация'
+   sign_in: 'Войти'
+ home:
+  index:
+   symptoms: 'Симптомы'
+   diseases: 'Болезни'
+   clinics: 'Клиники'
+   doctors: 'Врачи'
+ clinics:
+  show:
+   back: 'Назад'
+  doctors:
+   clinic_doctors: 'Врачи, работающие в клинике:'
+  specializations:
+   doctors_specializations: 'Специализации врачей клиники:'
+  form:
+   clinic: 'клинику'
+   submit: 'Сохранить'
