@@ -1,1 +1,9 @@
 ru:
+ layouts:
+  application:
+   title: 'Панель менеджера'
+   on_global: 'На главную'
+   profile: 'Профиль'
+   exit: 'Выйти'
+   registration: 'Регистрация'
+   sign_in: 'Войти'
