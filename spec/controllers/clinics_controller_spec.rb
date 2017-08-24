@@ -98,7 +98,6 @@ RSpec.describe ClinicsController, type: :controller do
 
       context 'not valid data' do
         it 'renders the edit template' do
-          attributes_for(:clinic)
           patch :update, { id: clinic.id, clinic: {title: clinic.title, email: nil }}
           expect(response).to render_template(:edit)
         end
