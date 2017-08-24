@@ -13,3 +13,9 @@ ru:
    diseases: 'Болезни'
    clinics: 'Клиники'
    doctors: 'Врачи'
+ clinics:
+  index:
+   create_clinic: 'Создать клинику'
+  changing_links:
+   change: 'Изменить'
+   delete: 'Удалить'

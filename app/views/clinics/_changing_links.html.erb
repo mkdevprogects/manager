@@ -1,5 +1,5 @@
-<%= link_to 'Изменить', edit_clinic_path(id), class: 'btn btn-default btn-m' %>
-<%= link_to 'Удалить',
+<%= link_to t('.change'), edit_clinic_path(id), class: 'btn btn-default btn-m' %>
+<%= link_to t('.delete'),
             clinic_path(id),
             method: :delete,
             data: { confirm: 'Вы уверены?' },
