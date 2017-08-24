@@ -7,3 +7,9 @@ ru:
    exit: 'Выйти'
    registration: 'Регистрация'
    sign_in: 'Войти'
+ home:
+  index:
+   symptoms: 'Симптомы'
+   diseases: 'Болезни'
+   clinics: 'Клиники'
+   doctors: 'Врачи'
