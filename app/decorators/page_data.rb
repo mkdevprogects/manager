@@ -3,9 +3,9 @@ module PageData
 
   def pages_title
     if object.new_record?
-      t('clinics.actions.create')
+      t('actions.create')
     else
-      t('clinics.actions.edit')
+      t('actions.edit')
     end
   end
 end

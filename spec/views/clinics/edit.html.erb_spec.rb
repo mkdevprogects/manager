@@ -8,6 +8,6 @@ RSpec.describe 'clinics/edit', type: :view do
   end
 
   it 'page have a title "Изменить клинику"' do
-    expect(rendered).to have_selector('h3', text: "#{t('clinics.actions.edit')} #{t('clinics.form.clinic')}")
+    expect(rendered).to have_selector('h3', text: "#{t('actions.edit')} #{t('clinics.form.clinic')}")
   end
 end

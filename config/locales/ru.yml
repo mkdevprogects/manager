@@ -1,4 +1,8 @@
 ru:
+ actions:
+  create: 'Создать'
+  edit: 'Изменить'
+  delete: 'Удалить'
  layouts:
   application:
    title: 'Панель менеджера'
@@ -14,10 +18,6 @@ ru:
    clinics: 'Клиники'
    doctors: 'Врачи'
  clinics:
-  actions:
-   create: 'Создать'
-   edit: 'Изменить'
-   delete: 'Удалить'
   show:
    back: 'Назад'
   doctors:
