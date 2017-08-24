@@ -30,7 +30,7 @@ class DiseasesController < BaseController
     if @disease.update(disease_params)
       redirect_to @disease, notice: 'Болезнь успешно изменена.'
     else
-      render :new
+      render :edit
     end
   end
 
