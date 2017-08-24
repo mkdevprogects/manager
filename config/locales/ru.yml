@@ -14,21 +14,16 @@ ru:
    clinics: 'Клиники'
    doctors: 'Врачи'
  clinics:
-  index:
-   create_clinic: 'Создать клинику'
-  new:
-   title: 'Создать'
-  edit:
-   title: 'Изменить'
-  changing_links:
-   change: 'Изменить'
+  actions:
+   create: 'Создать'
+   edit: 'Изменить'
    delete: 'Удалить'
   show:
    back: 'Назад'
   doctors:
-   doctors: 'Врачи, работающие в клинике:'
+   clinic_doctors: 'Врачи, работающие в клинике:'
   specializations:
-   specializations: 'Специализации врачей клиники:'
+   doctors_specializations: 'Специализации врачей клиники:'
   form:
-   title: 'клинику'
+   clinic: 'клинику'
    submit: 'Сохранить'
