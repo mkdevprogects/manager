@@ -13,16 +13,16 @@ RSpec.describe "clinics/_form", type: :view do
     end
 
     it 'page have a label "Название клиники"' do
-      expect(rendered).to have_selector('label', text: 'Название клиники')
+      expect(rendered).to have_selector('label', text: t('activerecord.attributes.clinic.title'))
     end
     it 'page have a label "Телефон клиники"' do
-      expect(rendered).to have_selector('label', text: 'Телефон клиники')
+      expect(rendered).to have_selector('label', text: t('activerecord.attributes.clinic.phone'))
     end
     it 'page have a label "Email клиники"' do
-      expect(rendered).to have_selector('label', text: 'Email клиники')
+      expect(rendered).to have_selector('label', text: t('activerecord.attributes.clinic.email'))
     end
     it 'page have a label "Адрес клиники"' do
-      expect(rendered).to have_selector('label', text: 'Адрес клиники')
+      expect(rendered).to have_selector('label', text: t('activerecord.attributes.clinic.address'))
     end
   end
 
