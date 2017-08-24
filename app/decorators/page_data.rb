@@ -1,9 +1,11 @@
 module PageData
+  include Draper::LazyHelpers
+
   def pages_title
     if object.new_record?
-      'Создать'
+      t('clinics.new.title')
     else
-      'Изменить'
+      t('clinics.edit.title')
     end
   end
 end

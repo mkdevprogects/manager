@@ -16,6 +16,10 @@ ru:
  clinics:
   index:
    create_clinic: 'Создать клинику'
+  new:
+   title: 'Создать'
+  edit:
+   title: 'Изменить'
   changing_links:
    change: 'Изменить'
    delete: 'Удалить'
@@ -25,3 +29,6 @@ ru:
    doctors: 'Врачи, работающие в клинике:'
   specializations:
    specializations: 'Специализации врачей клиники:'
+  form:
+   title: 'клинику'
+   submit: 'Сохранить'

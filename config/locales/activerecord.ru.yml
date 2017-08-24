@@ -16,6 +16,10 @@ ru:
   attributes:
    clinic:
     doctors: 'Врачи'
+    title: 'Название клиники'
+    phone: 'Телефон клиники'
+    email: 'Email клиники'
+    address: 'Адрес клиники'
    symptom:
     diseases: 'Болезни'
    doctor:
