@@ -2,16 +2,14 @@
   <div class="caption">
     <h3><%= @disease.pages_title %> болезнь</h3>
     <%= simple_form_for @disease do |f| %>
-        <%= f.input :title, label: 'Название болезни' %>
-        <%= f.input :icd_code, label: 'Код по МКБ:' %>
-        <%= f.input :description, label: 'Описание болезни', as: :text %>
+        <%= f.input :title %>
+        <%= f.input :icd_code %>
+        <%= f.input :description, as: :text %>
         <%= f.association :specializations,
-                          as: :check_boxes,
-                          label: 'Специализации врачей, которые занимаются лечением данной болезни:' %>
+                          as: :check_boxes %>
         <%= f.association :symptoms,
-                          as: :check_boxes,
-                          label: 'Выберите симптомы болезни:' %>
-        <%= f.button :submit, 'Сохранить' %>
+                          as: :check_boxes %>
+        <%= f.button :submit, t('actions.save') %>
     <% end %>
   </div>
 </div>

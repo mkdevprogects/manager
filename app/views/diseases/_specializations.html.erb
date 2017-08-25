@@ -1,5 +1,5 @@
 <div class="panel-heading">
-  <div role="presentation">Специализации врачей, которые лечат эту болезнь:</div>
+  <div role="presentation"><%= t('.specializations_disease') %></div>
   <div  class="list-group">
     <% @disease.specializations.each do |specialization| %>
         <div class="list-group-item"><%=specialization.title %></div>
