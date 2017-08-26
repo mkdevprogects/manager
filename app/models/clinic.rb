@@ -4,6 +4,8 @@ class Clinic < ActiveRecord::Base
 
   has_many :visits
 
+  has_many :performed_actions, as: :subject
+
   validates :title, presence: true
   validates :email, presence: true, uniqueness: true
 

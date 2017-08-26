@@ -33,6 +33,11 @@ class ClinicsController < BaseController
   end
 
   def destroy
+    PerformedAction.create(
+        actor: current_admin,
+        subject: @clinic,
+        action: "destroy"
+    )
     @clinic.destroy
     redirect_to clinics_url, notice: 'Клиника успешно удалена.'
   end
