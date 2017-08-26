@@ -13,6 +13,7 @@ ru:
    patient: 'Пациент'
    prescription: 'Рецепт'
    visit: 'Прием'
+   performed_action: 'Лог системы'
   attributes:
    clinic:
     doctors: 'Врачи'
@@ -26,6 +27,13 @@ ru:
     grades: 'Категории'
     specializations: 'Специализации'
     clinics: 'Клиники'
+   performed_action:
+    actor: 'Пользователь'
+    actor_type: 'Роль'
+    actor_id: 'id пользователя'
+    subject_type: 'Сущность'
+    action: 'Дейстие'
+    created_at: 'Дата и время'
   errors:
    messages:
     blank: 'не может быть пустым'

@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><%= t('activerecord.models.performed_action') %></div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.performed_action.actor_id') %></th>
+      <th><%= t('activerecord.attributes.performed_action.actor') %></th>
+      <th><%= t('activerecord.attributes.performed_action.actor_type') %></th>
+      <th><%= t('activerecord.attributes.performed_action.subject_type') %></th>
+      <th><%= t('activerecord.attributes.performed_action.action') %></th>
+      <th><%= t('activerecord.attributes.performed_action.created_at') %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @performed_actions.each do |action| %>
+      <tr>
+        <td scope="row">
+          <%= action.actor_id %>
+        </td>
+        <td scope="row">
+          <%= action.actor.name %> <%= action.actor.surname %>
+        </td>
+        <td scope="row">
+          <%= action.actor_type %>
+        </td>
+        <td>
+          <%= action.subject_type %>
+        </td>
+        <td>
+          <%= action.action %>
+        </td>
+        <td>
+          <%= action.created_at %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

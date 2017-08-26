@@ -17,6 +17,7 @@ ru:
    diseases: 'Болезни'
    clinics: 'Клиники'
    doctors: 'Врачи'
+   performed_action: 'Лог системы'
  clinics:
   show:
    back: 'Назад'
