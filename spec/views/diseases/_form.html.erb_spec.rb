@@ -14,15 +14,15 @@ RSpec.describe "diseases/_form", type: :view do
     end
 
     it 'page have a label "Название болезни"' do
-      expect(rendered).to have_selector('label', text: 'Название болезни')
+      expect(rendered).to have_selector('label', text: t('activerecord.attributes.disease.title'))
     end
 
     it 'page have a label "Код по МКБ"' do
-      expect(rendered).to have_selector('label', text: 'Код по МКБ')
+      expect(rendered).to have_selector('label', text: t('activerecord.attributes.disease.icd_code'))
     end
 
     it 'page have a label "Описание болезни"' do
-      expect(rendered).to have_selector('label', text: 'Описание болезни')
+      expect(rendered).to have_selector('label', text: t('activerecord.attributes.disease.description'))
     end
   end
 

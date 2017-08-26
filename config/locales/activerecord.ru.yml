@@ -26,6 +26,12 @@ ru:
     grades: 'Категории'
     specializations: 'Специализации'
     clinics: 'Клиники'
+   disease:
+    title: 'Название болезни'
+    icd_code: 'Код по МКБ'
+    description: 'Описание болезни'
+    specializations: 'Специализации врачей, которые занимаются лечением данной болезни'
+    symptoms: 'Симптомы болезни'
   errors:
    messages:
     blank: 'не может быть пустым'

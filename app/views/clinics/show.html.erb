@@ -7,7 +7,7 @@
         <p>email: <%= @clinic.email %></p>
         <p>адрес: <%= @clinic.address %></p>
         <p>
-          <%= link_to t('.back'), clinics_path, class: 'btn btn-primary btn-m' %>
+          <%= link_to t('actions.back'), clinics_path, class: 'btn btn-primary btn-m' %>
           <%= render 'changing_links', id: @clinic.id %>
         </p>
       </div>
