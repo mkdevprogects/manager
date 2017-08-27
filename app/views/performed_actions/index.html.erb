@@ -4,9 +4,9 @@
     <% if @search %>
       <%= search_form_for @search do |f| %>
             <div class="field">
-              <%= f.select :actor_type_eq, [['', ''], ['Admin', 'Admin'], ['Doctor', 'Doctor'], ['Client', 'Client']] %>
+              <%= f.select :actor_type_eq, [['', ''], ['Admin', 'Admin'], ['Doctor', 'Doctor'], ['Patient', 'Patient']] %>
               <%= f.select :subject_type_eq, [['', ''], ['Clinic', 'Clinic'], ['Symptom', 'Symptom'], ['Disease', 'Disease']] %>
-              <%= f.select :action_eq, [['', ''], ['Create', 'create'], ['Destroy', 'destroy'], ['Update', 'update']] %>
+              <%= f.select :action_eq, [['', ''], [t('actions.create'), 'create'], [t('actions.delete'), 'destroy'], [t('actions.edit'), 'update']] %>
             </div>
             <div class="actions">
               <%= f.submit 'Поиск'%>
@@ -20,8 +20,8 @@
       <th><%= t('activerecord.attributes.performed_action.actor_id') %></th>
       <th><%= t('activerecord.attributes.performed_action.actor') %></th>
       <th><%= t('activerecord.attributes.performed_action.actor_type') %></th>
-      <th><%= t('activerecord.attributes.performed_action.subject_type') %></th>
       <th><%= t('activerecord.attributes.performed_action.action') %></th>
+      <th><%= t('activerecord.attributes.performed_action.subject_type') %></th>
       <th><%= t('activerecord.attributes.performed_action.created_at') %></th>
     </tr>
     </thead>
@@ -38,10 +38,10 @@
           <%= action.actor_type %>
         </td>
         <td>
-          <%= action.subject_type %>
+          <%= action.action %>
         </td>
         <td>
-          <%= action.action %>
+          <%= action.subject_type %>
         </td>
         <td>
           <%= action.created_at %>

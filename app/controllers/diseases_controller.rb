@@ -21,7 +21,7 @@ class DiseasesController < BaseController
     @disease = Disease.new(disease_params).decorate
     if @disease.save
       redirect_to @disease, notice: 'Болезнь успешно создана.'
-      record(current_admin, @disease, "create")
+      record(current_admin, @disease, 'create')
     else
       render :new
     end
@@ -30,7 +30,7 @@ class DiseasesController < BaseController
   def update
     if @disease.update(disease_params)
       redirect_to @disease, notice: 'Болезнь успешно изменена.'
-      record(current_admin, @disease, "update")
+      record(current_admin, @disease, 'update')
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class DiseasesController < BaseController
   def destroy
     @disease.destroy
     redirect_to diseases_url, notice: 'Болезнь успешно удалена.'
-    record(current_admin, @disease, "destroy")
+    record(current_admin, @disease, 'destroy')
   end
 
   private
