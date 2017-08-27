@@ -1,5 +1,17 @@
 <div class="panel panel-default">
   <div class="panel-heading"><%= t('activerecord.models.performed_action') %></div>
+  <div class="panel-body">
+    <% if @search %>
+      <%= search_form_for @search do |f| %>
+            <div class="field">
+              <%= f.text_field :search_cont %>
+            </div>
+            <div class="actions">
+              <%= f.submit 'Поиск'%>
+            </div>
+      <% end %>
+    <% end %>
+  </div>
   <table class="table">
     <thead>
     <tr>

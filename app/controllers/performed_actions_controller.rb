@@ -1,5 +1,6 @@
 class PerformedActionsController < ApplicationController
   def index
-    @performed_actions = PerformedAction.all
+    @search = PerformedAction.ransack(params[:q])
+    @performed_actions = @search.result(distinct: true).includes(:actor, :subject)
   end
 end
