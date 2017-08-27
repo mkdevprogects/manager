@@ -4,7 +4,9 @@
     <% if @search %>
       <%= search_form_for @search do |f| %>
             <div class="field">
-              <%= f.text_field :search_cont %>
+              <%= f.select :actor_type_eq, [['', ''], ['Admin', 'Admin'], ['Doctor', 'Doctor'], ['Client', 'Client']] %>
+              <%= f.select :subject_type_eq, [['', ''], ['Clinic', 'Clinic'], ['Symptom', 'Symptom'], ['Disease', 'Disease']] %>
+              <%= f.select :action_eq, [['', ''], ['Create', 'create'], ['Destroy', 'destroy'], ['Update', 'update']] %>
             </div>
             <div class="actions">
               <%= f.submit 'Поиск'%>
