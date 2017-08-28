@@ -3,7 +3,7 @@
   <div class="panel-body">
     <% if @search %>
       <%= search_form_for @search do |f| %>
-            <div class="field">
+            <div class="field col-lg-4 col-md-4 col-sm-4">
               <%= f.select :actor_type_eq, [['', ''], ['Admin', 'Admin'], ['Doctor', 'Doctor'], ['Patient', 'Patient']] %>
               <%= f.select :subject_type_eq, [['', ''], ['Clinic', 'Clinic'], ['Symptom', 'Symptom'], ['Disease', 'Disease']] %>
               <%= f.select :action_eq, [['', ''], [t('actions.create'), 'create'], [t('actions.delete'), 'destroy'], [t('actions.edit'), 'update']] %>
