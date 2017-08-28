@@ -19,6 +19,7 @@ ru:
    diseases: 'Болезни'
    clinics: 'Клиники'
    doctors: 'Врачи'
+   performed_action: 'Лог системы'
  clinics:
   doctors:
    clinic_doctors: 'Врачи, работающие в клинике:'

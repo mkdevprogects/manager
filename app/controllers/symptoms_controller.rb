@@ -20,6 +20,7 @@ class SymptomsController < BaseController
     @symptom = Symptom.new(symptom_params).decorate
     if @symptom.save
       redirect_to @symptom, notice: 'Симптом успешно создан.'
+      record(current_admin, @symptom, "create")
     else
       render :new
     end
@@ -28,6 +29,7 @@ class SymptomsController < BaseController
   def update
     if @symptom.update(symptom_params)
       redirect_to @symptom, notice: 'Симптом успешно изменен.'
+      record(current_admin, @symptom, "update")
     else
       render :edit
     end
@@ -36,6 +38,7 @@ class SymptomsController < BaseController
   def destroy
     @symptom.destroy
     redirect_to symptoms_url, notice: 'Симптом успешно удален.'
+    record(current_admin, @symptom, "destroy")
   end
 
   private

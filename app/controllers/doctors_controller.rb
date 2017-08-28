@@ -19,6 +19,7 @@ class DoctorsController < BaseController
     @doctor = Doctor.new(doctor_params).decorate
     if @doctor.save
       redirect_to @doctor, notice: 'Врач успешно создан.'
+      record(current_admin, @doctor, "create")
     else
       render :new
     end
@@ -27,6 +28,7 @@ class DoctorsController < BaseController
   def update
     if @doctor.update(doctor_params)
       redirect_to @doctor, notice: 'Врач успешно изменен.'
+      record(current_admin, @doctor, "update")
     else
       render :new
     end
@@ -35,6 +37,7 @@ class DoctorsController < BaseController
   def destroy
     @doctor.destroy
     redirect_to doctors_url, notice: 'Врач успешно удален.'
+    record(current_admin, @doctor, "destroy")
   end
 
   private

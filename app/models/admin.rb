@@ -4,5 +4,7 @@ class Admin < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :performed_actions, as: :actor
+
   validates :email, presence: true, uniqueness: true
 end

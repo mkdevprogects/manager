@@ -19,6 +19,7 @@ class ClinicsController < BaseController
     @clinic = Clinic.new(clinic_params).decorate
     if @clinic.save
       redirect_to @clinic, notice: 'Клиника успешно создана.'
+      record(current_admin, @clinic, "create")
     else
       render :new
     end
@@ -27,6 +28,7 @@ class ClinicsController < BaseController
   def update
     if @clinic.update(clinic_params)
       redirect_to @clinic, notice: 'Клиника успешно изменена.'
+      record(current_admin, @clinic, "update")
     else
       render :edit
     end
@@ -35,6 +37,7 @@ class ClinicsController < BaseController
   def destroy
     @clinic.destroy
     redirect_to clinics_url, notice: 'Клиника успешно удалена.'
+    record(current_admin, @clinic, "destroy")
   end
   
   private
