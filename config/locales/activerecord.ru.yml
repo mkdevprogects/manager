@@ -34,6 +34,12 @@ ru:
     subject_type: 'Сущность'
     action: 'Дейстие'
     created_at: 'Дата и время'
+   disease:
+    title: 'Название болезни'
+    icd_code: 'Код по МКБ'
+    description: 'Описание болезни'
+    specializations: 'Специализации врачей, которые занимаются лечением данной болезни'
+    symptoms: 'Симптомы болезни'
   errors:
    messages:
     blank: 'не может быть пустым'

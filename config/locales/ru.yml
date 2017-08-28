@@ -3,6 +3,8 @@ ru:
   create: 'Создать'
   edit: 'Изменить'
   delete: 'Удалить'
+  back: 'Назад'
+  save: 'Сохранить'
  layouts:
   application:
    title: 'Панель менеджера'
@@ -19,12 +21,17 @@ ru:
    doctors: 'Врачи'
    performed_action: 'Лог системы'
  clinics:
-  show:
-   back: 'Назад'
   doctors:
    clinic_doctors: 'Врачи, работающие в клинике:'
   specializations:
    doctors_specializations: 'Специализации врачей клиники:'
   form:
    clinic: 'клинику'
-   submit: 'Сохранить'
+ diseases:
+  form:
+   disease: 'болезнь'
+  symptoms:
+   symptoms_disease: 'Симптомы, присущие болезни:'
+  specializations:
+   specializations_disease: 'Специализации врачей, которые лечат эту болезнь:'
+

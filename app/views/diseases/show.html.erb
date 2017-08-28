@@ -6,7 +6,7 @@
         <p><%= @disease.description %></p>
         <p><%= @disease.icd_code %></p>
         <p>
-          <%= link_to 'Назад', diseases_path, class: 'btn btn-primary btn-m' %>
+          <%= link_to t('actions.back'), diseases_path, class: 'btn btn-primary btn-m' %>
           <%= render 'changing_links', id: @disease.id %>
         </p>
       </div>
