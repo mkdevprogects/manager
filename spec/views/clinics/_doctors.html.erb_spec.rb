@@ -11,6 +11,6 @@ RSpec.describe "clinics/_doctors", type: :view do
   end
 
   it 'page have clinics doctor' do
-    expect(rendered).to have_selector('div.list-group-item', text: doctor.surname_name)
+    expect(rendered).to have_selector('div.list-group-item', text: doctor.full_name)
   end
 end
