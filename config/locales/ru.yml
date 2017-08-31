@@ -5,6 +5,8 @@ ru:
   delete: 'Удалить'
   back: 'Назад'
   save: 'Сохранить'
+ messages:
+  confirm: 'Вы уверены?'
  layouts:
   application:
    title: 'Панель менеджера'
@@ -34,4 +36,8 @@ ru:
    symptoms_disease: 'Симптомы, присущие болезни:'
   specializations:
    specializations_disease: 'Специализации врачей, которые лечат эту болезнь:'
+ doctors:
+  form:
+   doctor: 'врача'
+   clinics: 'Клиники, в которых работает врач'
 

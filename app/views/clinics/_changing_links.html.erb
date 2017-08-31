@@ -2,5 +2,5 @@
 <%= link_to t('actions.delete'),
             clinic_path(id),
             method: :delete,
-            data: { confirm: 'Вы уверены?' },
+            data: { confirm: t('messages.confirm') },
             class: 'btn btn-danger btn-m' %>
