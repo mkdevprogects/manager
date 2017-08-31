@@ -1,5 +1,5 @@
 <div class="panel-heading">
-  <div role="presentation">Болезни, присущие симптому:</div>
+  <div role="presentation"><%= t('symptoms.form.diseases') %>:</div>
   <div  class="list-group">
     <% @symptom.diseases.each do |disease| %>
         <div class="list-group-item"><%=disease.title %></div>

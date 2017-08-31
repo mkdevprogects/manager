@@ -22,6 +22,8 @@ ru:
     email: 'Email клиники'
     address: 'Адрес клиники'
    symptom:
+    title: 'Название симптома'
+    description: 'Описание симптома'
     diseases: 'Болезни'
    doctor:
     name: 'Имя'

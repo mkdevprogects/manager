@@ -40,4 +40,8 @@ ru:
   form:
    doctor: 'врача'
    clinics: 'Клиники, в которых работает врач'
+ symptoms:
+  form:
+   symptom: 'симптом'
+   diseases: 'Болезни, присущие симптому'
 
