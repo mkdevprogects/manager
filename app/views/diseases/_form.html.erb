@@ -5,10 +5,8 @@
         <%= f.input :title %>
         <%= f.input :icd_code %>
         <%= f.input :description, as: :text %>
-        <%= f.association :specializations,
-                          as: :check_boxes %>
-        <%= f.association :symptoms,
-                          as: :check_boxes %>
+        <%= f.association :specializations, as: :check_boxes %>
+        <%= f.association :symptoms, as: :check_boxes %>
         <%= f.button :submit, t('actions.save') %>
     <% end %>
   </div>

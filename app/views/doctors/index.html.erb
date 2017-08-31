@@ -1,13 +1,13 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <%= link_to 'Создать Врача', new_doctor_path, class: 'btn btn-success' %>
+    <%= link_to "#{t('actions.create')} #{t('doctors.form.doctor')}", new_doctor_path, class: 'btn btn-success' %>
   </div>
   <div  class="list-group">
     <% @doctors.each do |doctor| %>
         <div class="list-group-item">
           <div class="row">
             <div class="col-sm-4 col-md-8">
-              <%= link_to doctor.surname_name, doctor_path(doctor.id) %>
+              <%= link_to doctor.full_name, doctor_path(doctor.id) %>
             </div>
             <div class="col-sm-4 col-md-4 text-right">
               <%= render 'changing_links', id: doctor.id %>

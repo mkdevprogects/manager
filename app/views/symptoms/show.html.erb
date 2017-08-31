@@ -5,7 +5,7 @@
         <h3><%=	@symptom.title %></h3>
         <p><%= @symptom.description %></p>
         <p>
-          <%= link_to 'Назад', symptoms_path, class: 'btn btn-primary btn-m' %>
+          <%= link_to t('actions.back'), symptoms_path, class: 'btn btn-primary btn-m' %>
           <%= render 'changing_links', id: @symptom.id %>
         </p>
       </div>

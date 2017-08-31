@@ -2,15 +2,15 @@
   <div class="caption">
     <h3><%= @doctor.pages_title %> врача</h3>
     <%= simple_form_for @doctor do |f| %>
-        <%= f.input :name, label: 'Имя' %>
-        <%= f.input :surname, label: 'Фамилия' %>
-        <%= f.input :patronymic, label: 'Отчество' %>
-        <%= f.input :phone, label: 'Телефон:' %>
-        <%= f.input :email, label: 'email:' %>
+        <%= f.input :name %>
+        <%= f.input :surname %>
+        <%= f.input :patronymic %>
+        <%= f.input :phone %>
+        <%= f.input :email %>
         <%= f.association :grades, as: :check_boxes %>
         <%= f.association :specializations, as: :check_boxes %>
         <%= f.association :clinics, as: :check_boxes %>
-        <%= f.button :submit, 'Сохранить' %>
+        <%= f.button :submit, t('actions.save') %>
     <% end %>
   </div>
 </div>

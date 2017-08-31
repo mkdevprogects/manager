@@ -1,6 +1,6 @@
-<%= link_to 'Изменить', edit_doctor_path(id), class: 'btn btn-default btn-m' %>
-<%= link_to 'Удалить',
+<%= link_to t('actions.edit'), edit_doctor_path(id), class: 'btn btn-default btn-m' %>
+<%= link_to t('actions.delete'),
             doctor_path(id),
             method: :delete,
-            data: { confirm: 'Вы уверены?' },
+            data: { confirm: t('messages.confirm') },
             class: 'btn btn-danger btn-m' %>

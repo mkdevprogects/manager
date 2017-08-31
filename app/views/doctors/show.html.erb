@@ -2,11 +2,11 @@
   <div class="col-sm-24 col-md-24">
     <div class="thumbnail">
       <div class="caption">
-        <h3><%=	@doctor.surname_name %> <%=	@doctor.patronymic %></h3>
+        <h3><%=	@doctor.full_name %> <%=	@doctor.patronymic %></h3>
         <p>Телефон: <%= @doctor.phone %></p>
         <p>Email: <%= @doctor.email %></p>
         <p>
-          <%= link_to 'Назад', doctors_path, class: 'btn btn-primary btn-m' %>
+          <%= link_to t('actions.back'), doctors_path, class: 'btn btn-primary btn-m' %>
           <%= render 'changing_links', id: @doctor.id %>
         </p>
       </div>
