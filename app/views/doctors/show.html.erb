@@ -6,7 +6,7 @@
         <p>Телефон: <%= @doctor.phone %></p>
         <p>Email: <%= @doctor.email %></p>
         <p>
-          <%= link_to 'Назад', doctors_path, class: 'btn btn-primary btn-m' %>
+          <%= link_to t('actions.back'), doctors_path, class: 'btn btn-primary btn-m' %>
           <%= render 'changing_links', id: @doctor.id %>
         </p>
       </div>

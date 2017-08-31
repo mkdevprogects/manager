@@ -24,6 +24,11 @@ ru:
    symptom:
     diseases: 'Болезни'
    doctor:
+    name: 'Имя'
+    surname: 'Фамилия'
+    patronymic: 'Отчество'
+    phone: 'Телефон'
+    email: 'email'
     grades: 'Категории'
     specializations: 'Специализации'
     clinics: 'Клиники'

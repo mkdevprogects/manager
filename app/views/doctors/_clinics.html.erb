@@ -1,5 +1,5 @@
 <div class="panel-heading">
-  <div role="presentation">Клиники, в которых работает врач:</div>
+  <div role="presentation"><%= t('doctors.form.clinics') %>:</div>
   <div  class="list-group">
     <% @doctor.clinics.each do |clinic| %>
         <div class="list-group-item"><%=clinic.title %></div>
