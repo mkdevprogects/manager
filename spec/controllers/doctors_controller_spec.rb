@@ -28,7 +28,7 @@ RSpec.describe DoctorsController, type: :controller do
       end
 
       it "page have doctors full name" do
-        expect(response.body).to include("#{doctor_1.surname_name}","#{doctor_2.surname_name}")
+        expect(response.body).to include("#{doctor_1.full_name}","#{doctor_2.full_name}")
       end
     end
 
@@ -54,8 +54,8 @@ RSpec.describe DoctorsController, type: :controller do
         expect(assigns(:doctor)).to eq(doctor)
       end
 
-      it "page have doctors name and surname" do
-        expect(response.body).to include("#{doctor.surname_name}")
+      it "page have doctors full name" do
+        expect(response.body).to include("#{doctor.full_name}")
       end
 
       it "page have doctors phone" do
