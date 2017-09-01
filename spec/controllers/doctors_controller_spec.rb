@@ -26,11 +26,6 @@ RSpec.describe DoctorsController, type: :controller do
       it 'loads all doctors' do
         expect(assigns(:doctors)).to match_array([doctor_1, doctor_2])
       end
-
-      # перенести во вью
-      it 'page have doctors full name' do
-        expect(response.body).to include("#{doctor_1.full_name}","#{doctor_2.full_name}")
-      end
     end
 
     describe 'GET #show' do
@@ -53,31 +48,6 @@ RSpec.describe DoctorsController, type: :controller do
 
       it 'load doctor' do
         expect(assigns(:doctor)).to eq(doctor)
-      end
-
-      # перенести во вью это и все что ниже
-      it 'page have doctors full name' do
-        expect(response.body).to include("#{doctor.full_name}")
-      end
-
-      it 'page have doctors phone' do
-        expect(response.body).to include("#{doctor.phone}")
-      end
-
-      it 'page have doctors email' do
-        expect(response.body).to include("#{doctor.email}")
-      end
-
-      it 'page have doctors grade' do
-        expect(response.body).to include("#{doctor.grades.first.title}")
-      end
-
-      it 'page have doctors specializations' do
-        expect(response.body).to include("#{doctor.specializations.first.title}")
-      end
-
-      it 'page have doctors clinic' do
-        expect(response.body).to include("#{doctor.clinics.first.title}")
       end
     end
 
@@ -102,27 +72,6 @@ RSpec.describe DoctorsController, type: :controller do
 
       it 'renders the edit template' do
         expect(response).to render_template(:edit)
-      end
-
-      # перенести во вью это и все что ниже
-      it 'page have doctors name' do
-        expect(response.body).to include("#{doctor.name}")
-      end
-
-      it 'page have doctors surname' do
-        expect(response.body).to include("#{doctor.surname}")
-      end
-
-      it 'page have doctors patronymic' do
-        expect(response.body).to include("#{doctor.patronymic}")
-      end
-
-      it 'page have doctors phone' do
-        expect(response.body).to include("#{doctor.phone}")
-      end
-
-      it 'page have doctors email' do
-        expect(response.body).to include("#{doctor.email}")
       end
     end
 
