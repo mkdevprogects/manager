@@ -3,8 +3,8 @@ FactoryGirl.define do
     sequence(:actor_id) { |n| n }
     sequence(:subject_id) { |n| n }
     sequence(:actor_type) do
-      actors = ['Admin', 'Doctor', 'Patient']
-      actors[rand(0..2)]
+      actors = [create(:admin), create(:doctor)]
+      actors[rand(0..1)].to_s
     end
     sequence(:action) do
       actions = [
@@ -15,8 +15,13 @@ FactoryGirl.define do
       actions[rand(0..2)]
     end
     sequence(:subject_type) do
-      subjects = ['Clinic', 'Doctor', 'Symptom', 'Disease']
-      subjects[rand(0..3)]
+      subjects = [
+          create(:clinic),
+          create(:doctor),
+          create(:symptom),
+          create(:disease)
+      ]
+      subjects[rand(0..3)].to_s
     end
   end
 end
