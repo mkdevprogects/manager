@@ -7,7 +7,7 @@ RSpec.describe 'diseases/edit', type: :view do
     render
   end
 
-  it 'page have a title "Изменить болезнь"' do
+  it "page have a title '#{I18n.t('actions.edit')} #{I18n.t('diseases.form.disease')}'" do
     expect(rendered).to have_selector('h3', text: "#{t('actions.edit')} #{t('diseases.form.disease')}")
   end
 end

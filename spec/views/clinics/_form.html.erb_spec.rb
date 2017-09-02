@@ -5,23 +5,23 @@ RSpec.describe "clinics/_form", type: :view do
   let(:admin) { create(:admin) }
   before { sign_in admin }
 
-  context 'page have a labes' do
+  context 'page have a labels:' do
     let(:clinic) { create(:clinic) }
     let!(:item) do
       assign(:clinic, clinic.decorate)
       render
     end
 
-    it 'page have a label "Название клиники"' do
+    it I18n.t('activerecord.attributes.clinic.title') do
       expect(rendered).to have_selector('label', text: t('activerecord.attributes.clinic.title'))
     end
-    it 'page have a label "Телефон клиники"' do
+    it I18n.t('activerecord.attributes.clinic.phone') do
       expect(rendered).to have_selector('label', text: t('activerecord.attributes.clinic.phone'))
     end
-    it 'page have a label "Email клиники"' do
+    it I18n.t('activerecord.attributes.clinic.email') do
       expect(rendered).to have_selector('label', text: t('activerecord.attributes.clinic.email'))
     end
-    it 'page have a label "Адрес клиники"' do
+    it I18n.t('activerecord.attributes.clinic.address') do
       expect(rendered).to have_selector('label', text: t('activerecord.attributes.clinic.address'))
     end
   end

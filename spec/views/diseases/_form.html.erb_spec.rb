@@ -6,22 +6,22 @@ RSpec.describe "diseases/_form", type: :view do
   let(:admin) { create(:admin) }
   before { sign_in admin }
 
-  context 'page have a labes' do
+  context 'page have a labels:' do
     let(:disease) { create(:disease) }
     let!(:item) do
       assign(:disease, disease.decorate)
       render
     end
 
-    it 'page have a label "Название болезни"' do
+    it I18n.t('activerecord.attributes.disease.title') do
       expect(rendered).to have_selector('label', text: t('activerecord.attributes.disease.title'))
     end
 
-    it 'page have a label "Код по МКБ"' do
+    it I18n.t('activerecord.attributes.disease.icd_code') do
       expect(rendered).to have_selector('label', text: t('activerecord.attributes.disease.icd_code'))
     end
 
-    it 'page have a label "Описание болезни"' do
+    it I18n.t('activerecord.attributes.disease.description') do
       expect(rendered).to have_selector('label', text: t('activerecord.attributes.disease.description'))
     end
   end

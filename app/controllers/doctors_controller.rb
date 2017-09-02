@@ -30,7 +30,7 @@ class DoctorsController < BaseController
       redirect_to @doctor, notice: 'Врач успешно изменен.'
       record(current_admin, @doctor, "update")
     else
-      render :new
+      render :edit
     end
   end
 
