@@ -7,11 +7,7 @@ FactoryGirl.define do
       actors[rand(0..1)].to_s
     end
     sequence(:action) do
-      actions = [
-          I18n.t('actions.create'),
-          I18n.t('actions.edit'),
-          I18n.t('actions.delete')
-      ]
+      actions = ['create', 'update', 'destroy']
       actions[rand(0..2)]
     end
     sequence(:subject_type) do
