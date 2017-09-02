@@ -2,6 +2,7 @@ ru:
  actions:
   create: 'Создать'
   edit: 'Изменить'
+  update: 'Изменить'
   delete: 'Удалить'
   back: 'Назад'
   save: 'Сохранить'
