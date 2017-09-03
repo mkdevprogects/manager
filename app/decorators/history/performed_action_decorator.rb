@@ -12,7 +12,5 @@ module History
         t('actions.delete')
       end
     end
-
   end
-
 end
