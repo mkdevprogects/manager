@@ -16,7 +16,8 @@ class ClinicsController < BaseController
   end
 
   def create
-    @clinic = Clinic.new(clinic_params).decorate
+    clinic_builder = ClinicBuilder.new(clinic_params)
+    @clinic = clinic_builder.geocode.decorate
     if @clinic.save
       redirect_to @clinic, notice: 'Клиника успешно создана.'
       record(current_admin, @clinic, "create")
