@@ -1,8 +1,7 @@
 # manager
-Application - the administrator panel for managing entities - dictionaries and users.
+Application: the administrator's panel.
 
-Application: the administrator's personal area.
-Functionality: creation and editing of application entities.
+Functionality: managing of application entities.
 
 Running:
 
