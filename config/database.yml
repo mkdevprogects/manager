@@ -3,16 +3,18 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  database: <%= ENV['DB'] %>
+  username: <%= ENV['PGUSER'] %>
+  password: <%= ENV['PGPASSWORD'] %>
   host: <%= ENV['DB_HOST'] %>
 
 development:
   <<: *default
+  database: mkdev_dev
 
 test:
   <<: *default
+  database: mkdev_test
 
 production:
   <<: *default
+  database: mkdev_prod

@@ -31,7 +31,6 @@ end
 gem 'aasm', '~> 4.12', '>= 4.12.2'
 gem 'simplecov', require: false, group: :test
 gem 'devise', '~> 4.3'
-gem 'dotenv-rails'
 gem 'draper', '~> 2.1'
 gem 'ransack'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
